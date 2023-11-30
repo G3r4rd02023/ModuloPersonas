@@ -2,6 +2,7 @@
 use App\Http\Controllers\PersonasController;
 use App\Http\Controllers\TelefonosController;
 use App\Http\Controllers\UsuariosController;
+use App\Http\Controllers\EmpleadosController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -69,5 +70,19 @@ Route::middleware('auth')->group(function () {
     Route::delete('/usuarios/{cod_usuario}', [UsuariosController::class, 'destroy'])->name('usuarios.destroy');
         
 });
+
+//ruta empleados
+
+Route::middleware('auth')->group(function () {
+    Route::get('/empleados', [EmpleadosController::class, 'index']);
+    Route::get('/empleados/{cod_empleado}/detalle',[EmpleadosController::class,'show'])->name('empleados.show');
+    Route::get('/empleados/create', [EmpleadosController::class, 'create'])->name('empleados.create');
+    Route::post('/empleados', [EmpleadosController::class, 'store'])->name('empleados.store');
+    Route::get('/empleados/{cod_empleado}/edit', [EmpleadosController::class, 'edit'])->name('empleados.edit');
+    Route::put('/empleados/{cod_empleado}', [EmpleadosController::class, 'update'])->name('empleados.update');
+    Route::delete('/empleados/{cod_empleado}', [EmpleadosController::class, 'destroy'])->name('empleados.destroy');
+        
+});
+
 
 require __DIR__.'/auth.php';
