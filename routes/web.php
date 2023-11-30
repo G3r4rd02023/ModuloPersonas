@@ -3,6 +3,7 @@ use App\Http\Controllers\PersonasController;
 use App\Http\Controllers\TelefonosController;
 use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\EmpleadosController;
+use App\Http\Controllers\CorreosController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -84,5 +85,16 @@ Route::middleware('auth')->group(function () {
         
 });
 
+//ruta correos
+Route::middleware('auth')->group(function () {
+    Route::get('/correos', [CorreosController::class, 'index']);
+    Route::get('/correos/{cod_correo}/detalle',[CorreosController::class,'show'])->name('correos.show');
+    Route::get('/correos/create', [CorreosController::class, 'create'])->name('correos.create');
+    Route::post('/correos', [CorreosController::class, 'store'])->name('correos.store');
+    Route::get('/correos/{cod_correo}/edit', [CorreosController::class, 'edit'])->name('correos.edit');
+    Route::put('/correos/{cod_correo}', [CorreosController::class, 'update'])->name('correos.update');
+    Route::delete('/correos/{cod_correo}', [CorreosController::class, 'destroy'])->name('correos.destroy');
+        
+});
 
 require __DIR__.'/auth.php';
