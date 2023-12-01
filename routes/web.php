@@ -7,6 +7,7 @@ use App\Http\Controllers\CorreosController;
 use App\Http\Controllers\ProveedoresController;
 use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\AcreedoresController;
+use App\Http\Controllers\DireccionesController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -135,6 +136,17 @@ Route::middleware('auth')->group(function () {
     Route::get('/acreedores/{cod_acreedor}/edit', [AcreedoresController::class, 'edit'])->name('acreedores.edit');
     Route::put('/acreedores/{cod_acreedor}', [AcreedoresController::class, 'update'])->name('acreedores.update');
     Route::delete('/acreedores/{cod_acreedor}', [AcreedoresController::class, 'destroy'])->name('acreedores.destroy');
+        
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('/direcciones', [DireccionesController::class, 'index']);
+    Route::get('/direcciones/{cod_direccion}/detalle',[DireccionesController::class,'show'])->name('direcciones.show');
+    Route::get('/direcciones/create', [DireccionesController::class, 'create'])->name('direcciones.create');
+    Route::post('/direcciones', [DireccionesController::class, 'store'])->name('direcciones.store');
+    Route::get('/direcciones/{cod_direccion}/edit', [DireccionesController::class, 'edit'])->name('direcciones.edit');
+    Route::put('/direcciones/{cod_direccion}', [DireccionesController::class, 'update'])->name('direcciones.update');
+    Route::delete('/direcciones/{cod_direccion}', [DireccionesController::class, 'destroy'])->name('direcciones.destroy');
         
 });
 
