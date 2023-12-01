@@ -4,6 +4,7 @@ use App\Http\Controllers\TelefonosController;
 use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\EmpleadosController;
 use App\Http\Controllers\CorreosController;
+use App\Http\Controllers\ProveedoresController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -94,6 +95,18 @@ Route::middleware('auth')->group(function () {
     Route::get('/correos/{cod_correo}/edit', [CorreosController::class, 'edit'])->name('correos.edit');
     Route::put('/correos/{cod_correo}', [CorreosController::class, 'update'])->name('correos.update');
     Route::delete('/correos/{cod_correo}', [CorreosController::class, 'destroy'])->name('correos.destroy');
+        
+});
+
+//ruta PROVEEDORES
+Route::middleware('auth')->group(function () {
+    Route::get('/proveedores', [ProveedoresController::class, 'index']);
+    Route::get('/proveedores/{cod_proveedor}/detalle',[ProveedoresController::class,'show'])->name('proveedores.show');
+    Route::get('/proveedores/create', [ProveedoresController::class, 'create'])->name('proveedores.create');
+    Route::post('/proveedores', [ProveedoresController::class, 'store'])->name('proveedores.store');
+    Route::get('/proveedores/{cod_proveedor}/edit', [ProveedoresController::class, 'edit'])->name('proveedores.edit');
+    Route::put('/proveedores/{cod_proveedor}', [ProveedoresController::class, 'update'])->name('proveedores.update');
+    Route::delete('/proveedores/{cod_proveedor}', [ProveedoresController::class, 'destroy'])->name('proveedores.destroy');
         
 });
 
