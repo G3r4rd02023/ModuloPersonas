@@ -5,6 +5,7 @@ use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\EmpleadosController;
 use App\Http\Controllers\CorreosController;
 use App\Http\Controllers\ProveedoresController;
+use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -110,4 +111,16 @@ Route::middleware('auth')->group(function () {
         
 });
 
+
+//rutas clientes
+Route::middleware('auth')->group(function () {
+    Route::get('/clientes', [ClientesController::class, 'index']);
+    Route::get('/clientes/{cod_cliente}/detalle',[ClientesController::class,'show'])->name('clientes.show');
+    Route::get('/clientes/create', [ClientesController::class, 'create'])->name('clientes.create');
+    Route::post('/clientes', [ClientesController::class, 'store'])->name('clientes.store');
+    Route::get('/clientes/{cod_cliente}/edit', [ClientesController::class, 'edit'])->name('clientes.edit');
+    Route::put('/clientes/{cod_cliente}', [ClientesController::class, 'update'])->name('clientes.update');
+    Route::delete('/clientes/{cod_cliente}', [ClientesController::class, 'destroy'])->name('clientes.destroy');
+        
+});
 require __DIR__.'/auth.php';
