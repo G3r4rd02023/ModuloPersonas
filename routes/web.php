@@ -6,6 +6,7 @@ use App\Http\Controllers\EmpleadosController;
 use App\Http\Controllers\CorreosController;
 use App\Http\Controllers\ProveedoresController;
 use App\Http\Controllers\ClientesController;
+use App\Http\Controllers\AcreedoresController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -123,4 +124,18 @@ Route::middleware('auth')->group(function () {
     Route::delete('/clientes/{cod_cliente}', [ClientesController::class, 'destroy'])->name('clientes.destroy');
         
 });
+
+// rutas acreedores
+
+Route::middleware('auth')->group(function () {
+    Route::get('/acreedores', [AcreedoresController::class, 'index']);
+    Route::get('/acreedores/{cod_acreedor}/detalle',[AcreedoresController::class,'show'])->name('acreedores.show');
+    Route::get('/acreedores/create', [AcreedoresController::class, 'create'])->name('acreedores.create');
+    Route::post('/acreedores', [AcreedoresController::class, 'store'])->name('acreedores.store');
+    Route::get('/acreedores/{cod_acreedor}/edit', [AcreedoresController::class, 'edit'])->name('acreedores.edit');
+    Route::put('/acreedores/{cod_acreedor}', [AcreedoresController::class, 'update'])->name('acreedores.update');
+    Route::delete('/acreedores/{cod_acreedor}', [AcreedoresController::class, 'destroy'])->name('acreedores.destroy');
+        
+});
+
 require __DIR__.'/auth.php';
