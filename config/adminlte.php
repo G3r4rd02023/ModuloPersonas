@@ -330,43 +330,47 @@ return [
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-            ],
+            'text'    => 'Personas',
+            'url'     => '/personas',
+            'icon'    => 'fas fa-fw fa-share',   
         ],
+        [
+            'text'    => 'Usuarios',
+            'url'     => '/usuarios',
+            'icon'    => 'fas fa-fw fa-share',   
+        ],
+        [
+            'text'    => 'Telefonos',
+            'url'     => '/telefonos',
+            'icon'    => 'fas fa-fw fa-share',   
+        ],
+        [
+            'text'    => 'Correos',
+            'url'     => '/correos',
+            'icon'    => 'fas fa-fw fa-share',   
+        ],
+        [
+            'text'    => 'Proveedores',
+            'url'     => '/proveedores',
+            'icon'    => 'fas fa-fw fa-share',   
+        ],
+        [
+            'text'    => 'Acreedores',
+            'url'     => '/acreedores',
+            'icon'    => 'fas fa-fw fa-share',   
+        ],
+        [
+            'text'    => 'Clientes',
+            'url'     => '/clientes',
+            'icon'    => 'fas fa-fw fa-share',   
+        ],
+        [
+            'text'    => 'Direcciones',
+            'url'     => '/direcciones',
+            'icon'    => 'fas fa-fw fa-share',   
+        ],
+        ],
+        
         ['header' => 'labels'],
         [
             'text'       => 'important',
